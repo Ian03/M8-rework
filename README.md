@@ -12,6 +12,7 @@ assets/
   logo.png           # logo "X8" usada no topo
   screenshot-gameplay.png
   screenshot-save.png
+  screenshot-debug.png
 ```
 
 ## Passo a passo para publicar
