@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>X8 16-bit — Fangame de Mega Man X</title>
-<meta name="description" content="X8 16-bit é um fangame gratuito de Mega Man X feito na Godot Engine. Jogue com X, Zero e Axl. Baixe para Windows, Linux e Android.">
+<title data-i18n="meta.title">X8 16-bit — Fangame de Mega Man X</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="X8 16-bit é um fangame gratuito de Mega Man X feito na Godot Engine. Jogue com X, Zero e Axl. Baixe para Windows, Linux e Android.">
 <link rel="icon" type="image/png" href="assets/icon.png">
 <style>
   :root{
@@ -42,12 +42,23 @@
   .nav-inner{
     max-width:1100px;margin:0 auto;padding:12px 24px;
     display:flex;align-items:center;justify-content:space-between;
+    gap:16px;
   }
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
   .brand img{width:32px;height:32px;image-rendering:pixelated}
-  .nav-links{display:flex;gap:28px;font-size:14px}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:14px}
   .nav-links a{color:var(--text-dim);transition:color .15s}
   .nav-links a:hover{color:var(--blue)}
+
+  .lang-switch{display:flex;gap:2px;border:1px solid var(--panel-border);border-radius:999px;padding:2px}
+  .lang-switch button{
+    border:none;background:transparent;color:var(--text-dim);
+    font-size:12px;font-weight:700;letter-spacing:.5px;
+    padding:5px 12px;border-radius:999px;cursor:pointer;
+    transition:background .15s, color .15s;
+  }
+  .lang-switch button.active{background:var(--blue-dim);color:#fff}
+  .lang-switch button:not(.active):hover{color:var(--blue)}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -221,9 +232,13 @@
       <span>X8 16-BIT</span>
     </div>
     <nav class="nav-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="#download">Download</a>
+      <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
+      <a href="#screenshots" data-i18n="nav.screenshots">Screenshots</a>
+      <a href="#download" data-i18n="nav.download">Download</a>
+      <div class="lang-switch" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="pt">PT</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -231,17 +246,17 @@
 <section class="hero">
   <div class="container">
     <img class="logo" src="assets/logo.png" alt="X8 16-bit">
-    <h1>Fangame gratuito de Mega Man X</h1>
-    <p class="tagline">
+    <h1 data-i18n="hero.h1">Fangame gratuito de Mega Man X</h1>
+    <p class="tagline" data-i18n="hero.tagline">
       Reimplementação da jogabilidade clássica de Mega Man X, com X, Zero e Axl jogáveis,
       modo Tag Team, fases completas com chefes e cutscenes, conquistas e muito mais.
       100% gratuito.
     </p>
     <div class="hero-ctas">
-      <a href="#download" class="btn btn-primary">⬇ Baixar agora</a>
-      <a href="#sobre" class="btn btn-outline">Saiba mais</a>
+      <a href="#download" class="btn btn-primary" data-i18n="hero.cta.primary">⬇ Baixar agora</a>
+      <a href="#sobre" class="btn btn-outline" data-i18n="hero.cta.secondary">Saiba mais</a>
     </div>
-    <div class="disclaimer-pill">
+    <div class="disclaimer-pill" data-i18n="hero.disclaimer">
       Fangame não-oficial • Sem fins lucrativos • Não afiliado à Capcom
     </div>
   </div>
@@ -249,75 +264,75 @@
 
 <section id="sobre">
   <div class="section-title">
-    <span class="eyebrow">Sobre o jogo</span>
-    <h2>O que você vai encontrar</h2>
+    <span class="eyebrow" data-i18n="sobre.eyebrow">Sobre o jogo</span>
+    <h2 data-i18n="sobre.title">O que você vai encontrar</h2>
   </div>
   <div class="features-grid">
     <div class="feature-card">
       <div class="icon">🎮</div>
-      <h3>3 personagens jogáveis</h3>
-      <p>Jogue com X (incluindo as variantes Ultimate X e Infinite X), Zero e Axl, cada um com moveset próprio.</p>
+      <h3 data-i18n="feat.1.title">3 personagens jogáveis</h3>
+      <p data-i18n="feat.1.desc">Jogue com X (incluindo as variantes Ultimate X e Infinite X), Zero e Axl, cada um com moveset próprio.</p>
     </div>
     <div class="feature-card">
       <div class="icon">🔄</div>
-      <h3>Modo Tag Team</h3>
-      <p>Troque de personagem em pleno combate e combine habilidades para enfrentar os chefes.</p>
+      <h3 data-i18n="feat.2.title">Modo Tag Team</h3>
+      <p data-i18n="feat.2.desc">Troque de personagem em pleno combate e combine habilidades para enfrentar os chefes.</p>
     </div>
     <div class="feature-card">
       <div class="icon">🗺️</div>
-      <h3>Fases completas</h3>
-      <p>Estágios com chefes, itens, checkpoints e cutscenes com sistema de diálogo próprio.</p>
+      <h3 data-i18n="feat.3.title">Fases completas</h3>
+      <p data-i18n="feat.3.desc">Estágios com chefes, itens, checkpoints e cutscenes com sistema de diálogo próprio.</p>
     </div>
     <div class="feature-card">
       <div class="icon">🏆</div>
-      <h3>Conquistas</h3>
-      <p>Sistema de achievements para quem quiser zerar o jogo no 100%.</p>
+      <h3 data-i18n="feat.4.title">Conquistas</h3>
+      <p data-i18n="feat.4.desc">Sistema de achievements para quem quiser zerar o jogo no 100%.</p>
     </div>
     <div class="feature-card">
       <div class="icon">⏱️</div>
-      <h3>Time Attack</h3>
-      <p>Cronômetro interno (IGT) para quem curte correr o jogo contra o tempo.</p>
+      <h3 data-i18n="feat.5.title">Time Attack</h3>
+      <p data-i18n="feat.5.desc">Cronômetro interno (IGT) para quem curte correr o jogo contra o tempo.</p>
     </div>
     <div class="feature-card">
       <div class="icon">🌐</div>
-      <h3>Vários idiomas</h3>
-      <p>Inglês, Português, Espanhol, Japonês — e o clássico "HueBR" pra descontrair.</p>
+      <h3 data-i18n="feat.6.title">Vários idiomas</h3>
+      <p data-i18n="feat.6.desc">Inglês, Português, Espanhol, Japonês — e o clássico "HueBR" pra descontrair.</p>
     </div>
     <div class="feature-card">
       <div class="icon">📼</div>
-      <h3>Shader CRT opcional</h3>
-      <p>Ligue o filtro CRT para uma experiência visual ainda mais retrô.</p>
+      <h3 data-i18n="feat.7.title">Shader CRT opcional</h3>
+      <p data-i18n="feat.7.desc">Ligue o filtro CRT para uma experiência visual ainda mais retrô.</p>
     </div>
     <div class="feature-card">
       <div class="icon">💾</div>
-      <h3>Múltiplos saves</h3>
-      <p>Vários slots de save independentes, com confirmação antes de sobrescrever ou apagar.</p>
+      <h3 data-i18n="feat.8.title">Múltiplos saves</h3>
+      <p data-i18n="feat.8.desc">Vários slots de save independentes, com confirmação antes de sobrescrever ou apagar.</p>
     </div>
   </div>
 
   <div class="chars" style="margin-top:40px">
     <span class="chip"><b>X</b> · Ultimate X / Infinite X</span>
-    <span class="chip"><b>Zero</b> · moveset completo</span>
-    <span class="chip"><b>Axl</b> · moveset completo</span>
+    <span class="chip"><b>Zero</b> · <span data-i18n="chars.moveset">moveset completo</span></span>
+    <span class="chip"><b>Axl</b> · <span data-i18n="chars.moveset">moveset completo</span></span>
   </div>
 </section>
 
 <section id="screenshots">
   <div class="section-title">
-    <span class="eyebrow">Capturas de tela</span>
-    <h2>Um gostinho do jogo</h2>
+    <span class="eyebrow" data-i18n="shots.eyebrow">Capturas de tela</span>
+    <h2 data-i18n="shots.title">Um gostinho do jogo</h2>
   </div>
   <div class="shots-grid">
-    <div class="shot"><img src="assets/screenshot-gameplay.png" alt="Gameplay — Zero explorando uma fase de floresta"></div>
-    <div class="shot"><img src="assets/screenshot-save.png" alt="Tela de salvar e carregar"></div>
-    <div class="shot"><img src="assets/screenshot-debug.png" alt="Painel de debug do jogo"></div>
+    <div class="shot"><img src="assets/screenshot-gameplay.png" data-i18n-attr="alt" data-i18n="shots.alt.gameplay" alt="Gameplay — Zero explorando uma fase de floresta"></div>
+    <div class="shot"><img src="assets/screenshot-save.png" data-i18n-attr="alt" data-i18n="shots.alt.save" alt="Tela de salvar e carregar"></div>
+    <div class="shot"><img src="assets/screenshot-debug.png" data-i18n-attr="alt" data-i18n="shots.alt.debug" alt="Painel de debug do jogo"></div>
   </div>
 </section>
 
 <section id="download">
   <div class="section-title">
-    <span class="eyebrow">Download</span>
-    <h2>Escolha sua plataforma</h2>
+    <span class="eyebrow" data-i18n="dl.eyebrow">Download</span>
+    <h2 data-i18n="dl.title">Escolha sua plataforma</h2>
   </div>
 
   <div class="download-grid">
@@ -325,7 +340,7 @@
       <svg class="os-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5.5 10 4.5v7H3V5.5zM11 4.4 21 3v8.5H11V4.4zM3 12.5H10V19.4L3 18.5V12.5zM11 12.5H21V21L11 19.6V12.5Z"/></svg>
       <h3>Windows</h3>
       <div class="meta">Windows 10/11 · 64-bit</div>
-      <a class="btn btn-primary" href="https://github.com/Ian03/M8-rework/releases/latest/download/MegaManX8-Windows.zip">
+      <a class="btn btn-primary" href="https://github.com/Ian03/M8-rework/releases/latest/download/MegaManX8-Windows.zip" data-i18n="dl.windows.btn">
         ⬇ Baixar para Windows
       </a>
     </div>
@@ -334,7 +349,7 @@
       <svg class="os-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c1.5 2 1.7 3.6 1 5.2-.5 1.1-.2 1.8.6 2.7 1.4 1.6 2.1 3.3 1.9 5.1-.3 3-2.9 5-6 5-3.6 0-6.3-2.4-6.3-5.6 0-2 .9-3.3 2-4.6.8-.9 1-1.6.5-2.6C4.9 5.6 6.4 3 8.6 2.2 9.6 1.8 10.6 2 12 2Z"/><circle cx="9.7" cy="14.3" r=".9" fill="currentColor"/><circle cx="14.3" cy="14.3" r=".9" fill="currentColor"/></svg>
       <h3>Linux</h3>
       <div class="meta">x86_64</div>
-      <a class="btn btn-primary" href="https://github.com/Ian03/M8-rework/releases/latest/download/MegaManX8-Linux.zip">
+      <a class="btn btn-primary" href="https://github.com/Ian03/M8-rework/releases/latest/download/MegaManX8-Linux.zip" data-i18n="dl.linux.btn">
         ⬇ Baixar para Linux
       </a>
     </div>
@@ -342,14 +357,14 @@
     <div class="dl-card">
       <svg class="os-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8.5v8a1 1 0 0 0 1 1h1v2.5a1.3 1.3 0 0 0 2.6 0V17.5h2.8V20a1.3 1.3 0 0 0 2.6 0V17.5H17a1 1 0 0 0 1-1v-8H6Z"/><path d="M8.5 5.5 7 3.3M15.5 5.5 17 3.3M6.5 8.5h11M4 10.5v5M20 10.5v5"/></svg>
       <h3>Android</h3>
-      <div class="meta">APK · requer permitir "fontes desconhecidas"</div>
-      <a class="btn btn-primary" href="https://github.com/Ian03/M8-rework/releases/latest/download/MegaManX8-Android.apk">
+      <div class="meta" data-i18n="dl.android.meta">APK · requer permitir "fontes desconhecidas"</div>
+      <a class="btn btn-primary" href="https://github.com/Ian03/M8-rework/releases/latest/download/MegaManX8-Android.apk" data-i18n="dl.android.btn">
         ⬇ Baixar para Android
       </a>
     </div>
   </div>
 
-  <p class="dl-note">
+  <p class="dl-note" data-i18n="dl.note">
     Jogo gratuito — não é necessário criar conta nem instalar launcher.
     Em caso de aviso do Windows Defender/SmartScreen ao abrir o executável,
     clique em "Mais informações → Executar assim mesmo" (comum em builds sem
@@ -359,29 +374,172 @@
 
 <section class="legal">
   <div class="container">
-    <p>
+    <p data-i18n="legal.p1">
       Este é um <strong>fangame gratuito e não-oficial</strong> de Mega Man X.
       Não é afiliado, associado, autorizado, aprovado ou de qualquer forma
       oficialmente conectado com a Capcom ou qualquer uma de suas subsidiárias.
       Mega Man X é propriedade da <strong>Capcom</strong> — por favor, apoie os jogos oficiais.
     </p>
-    <p>
+    <p data-i18n="legal.p2">
       Baseado no projeto original <span class="credit-name">X8 16-bit</span>,
       criado por <span class="credit-name">Alysson da Paz</span> —
       <a href="https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit" target="_blank" rel="noopener">
         github.com/AlyssonDaPaz/Mega-Man-X8-16-bit
       </a>
     </p>
-    <p>
+    <p data-i18n="legal.p3">
       Distribuído sob a licença X8 16-bit License: uso e distribuição livres,
       desde que não monetizados. Consulte o repositório do projeto original para o texto completo da licença.
     </p>
   </div>
 </section>
 
-<footer>
+<footer data-i18n="footer.text">
   Feito com Godot Engine · <a href="https://github.com/Ian03/Megaman-X" target="_blank" rel="noopener">código-fonte no GitHub</a>
 </footer>
+
+<script>
+(function(){
+  var translations = {
+    pt: {
+      "meta.title": "X8 16-bit — Fangame de Mega Man X",
+      "meta.description": "X8 16-bit é um fangame gratuito de Mega Man X feito na Godot Engine. Jogue com X, Zero e Axl. Baixe para Windows, Linux e Android.",
+      "nav.sobre": "Sobre",
+      "nav.screenshots": "Screenshots",
+      "nav.download": "Download",
+      "hero.h1": "Fangame gratuito de Mega Man X",
+      "hero.tagline": "Reimplementação da jogabilidade clássica de Mega Man X, com X, Zero e Axl jogáveis, modo Tag Team, fases completas com chefes e cutscenes, conquistas e muito mais. 100% gratuito.",
+      "hero.cta.primary": "⬇ Baixar agora",
+      "hero.cta.secondary": "Saiba mais",
+      "hero.disclaimer": "Fangame não-oficial • Sem fins lucrativos • Não afiliado à Capcom",
+      "sobre.eyebrow": "Sobre o jogo",
+      "sobre.title": "O que você vai encontrar",
+      "feat.1.title": "3 personagens jogáveis",
+      "feat.1.desc": "Jogue com X (incluindo as variantes Ultimate X e Infinite X), Zero e Axl, cada um com moveset próprio.",
+      "feat.2.title": "Modo Tag Team",
+      "feat.2.desc": "Troque de personagem em pleno combate e combine habilidades para enfrentar os chefes.",
+      "feat.3.title": "Fases completas",
+      "feat.3.desc": "Estágios com chefes, itens, checkpoints e cutscenes com sistema de diálogo próprio.",
+      "feat.4.title": "Conquistas",
+      "feat.4.desc": "Sistema de achievements para quem quiser zerar o jogo no 100%.",
+      "feat.5.title": "Time Attack",
+      "feat.5.desc": "Cronômetro interno (IGT) para quem curte correr o jogo contra o tempo.",
+      "feat.6.title": "Vários idiomas",
+      "feat.6.desc": "Inglês, Português, Espanhol, Japonês — e o clássico \"HueBR\" pra descontrair.",
+      "feat.7.title": "Shader CRT opcional",
+      "feat.7.desc": "Ligue o filtro CRT para uma experiência visual ainda mais retrô.",
+      "feat.8.title": "Múltiplos saves",
+      "feat.8.desc": "Vários slots de save independentes, com confirmação antes de sobrescrever ou apagar.",
+      "chars.moveset": "moveset completo",
+      "shots.eyebrow": "Capturas de tela",
+      "shots.title": "Um gostinho do jogo",
+      "shots.alt.gameplay": "Gameplay — Zero explorando uma fase de floresta",
+      "shots.alt.save": "Tela de salvar e carregar",
+      "shots.alt.debug": "Painel de debug do jogo",
+      "dl.eyebrow": "Download",
+      "dl.title": "Escolha sua plataforma",
+      "dl.windows.btn": "⬇ Baixar para Windows",
+      "dl.linux.btn": "⬇ Baixar para Linux",
+      "dl.android.meta": "APK · requer permitir \"fontes desconhecidas\"",
+      "dl.android.btn": "⬇ Baixar para Android",
+      "dl.note": "Jogo gratuito — não é necessário criar conta nem instalar launcher. Em caso de aviso do Windows Defender/SmartScreen ao abrir o executável, clique em \"Mais informações → Executar assim mesmo\" (comum em builds sem certificado de assinatura de código).",
+      "legal.p1": "Este é um <strong>fangame gratuito e não-oficial</strong> de Mega Man X. Não é afiliado, associado, autorizado, aprovado ou de qualquer forma oficialmente conectado com a Capcom ou qualquer uma de suas subsidiárias. Mega Man X é propriedade da <strong>Capcom</strong> — por favor, apoie os jogos oficiais.",
+      "legal.p2": "Baseado no projeto original <span class=\"credit-name\">X8 16-bit</span>, criado por <span class=\"credit-name\">Alysson da Paz</span> — <a href=\"https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit\" target=\"_blank\" rel=\"noopener\">github.com/AlyssonDaPaz/Mega-Man-X8-16-bit</a>",
+      "legal.p3": "Distribuído sob a licença X8 16-bit License: uso e distribuição livres, desde que não monetizados. Consulte o repositório do projeto original para o texto completo da licença.",
+      "footer.text": "Feito com Godot Engine · <a href=\"https://github.com/Ian03/Megaman-X\" target=\"_blank\" rel=\"noopener\">código-fonte no GitHub</a>"
+    },
+    en: {
+      "meta.title": "X8 16-bit — A Mega Man X Fangame",
+      "meta.description": "X8 16-bit is a free Mega Man X fangame made in the Godot Engine. Play as X, Zero and Axl. Download for Windows, Linux and Android.",
+      "nav.sobre": "About",
+      "nav.screenshots": "Screenshots",
+      "nav.download": "Download",
+      "hero.h1": "Free Mega Man X fangame",
+      "hero.tagline": "A reimplementation of the classic Mega Man X gameplay, with playable X, Zero and Axl, Tag Team mode, full stages with bosses and cutscenes, achievements and much more. 100% free.",
+      "hero.cta.primary": "⬇ Download now",
+      "hero.cta.secondary": "Learn more",
+      "hero.disclaimer": "Unofficial fangame • Non-profit • Not affiliated with Capcom",
+      "sobre.eyebrow": "About the game",
+      "sobre.title": "What you'll find",
+      "feat.1.title": "3 playable characters",
+      "feat.1.desc": "Play as X (including the Ultimate X and Infinite X variants), Zero and Axl, each with their own moveset.",
+      "feat.2.title": "Tag Team mode",
+      "feat.2.desc": "Swap characters mid-fight and combine abilities to take down the bosses.",
+      "feat.3.title": "Full stages",
+      "feat.3.desc": "Stages with bosses, items, checkpoints and cutscenes with their own dialogue system.",
+      "feat.4.title": "Achievements",
+      "feat.4.desc": "An achievement system for players who want to 100% the game.",
+      "feat.5.title": "Time Attack",
+      "feat.5.desc": "Built-in timer (IGT) for players who enjoy speedrunning the game.",
+      "feat.6.title": "Multiple languages",
+      "feat.6.desc": "English, Portuguese, Spanish, Japanese — and the classic \"HueBR\" just for fun.",
+      "feat.7.title": "Optional CRT shader",
+      "feat.7.desc": "Turn on the CRT filter for an even more retro visual experience.",
+      "feat.8.title": "Multiple save slots",
+      "feat.8.desc": "Several independent save slots, with confirmation before overwriting or deleting.",
+      "chars.moveset": "full moveset",
+      "shots.eyebrow": "Screenshots",
+      "shots.title": "A taste of the game",
+      "shots.alt.gameplay": "Gameplay — Zero exploring a forest stage",
+      "shots.alt.save": "Save and load screen",
+      "shots.alt.debug": "The game's debug panel",
+      "dl.eyebrow": "Download",
+      "dl.title": "Choose your platform",
+      "dl.windows.btn": "⬇ Download for Windows",
+      "dl.linux.btn": "⬇ Download for Linux",
+      "dl.android.meta": "APK · requires enabling \"unknown sources\"",
+      "dl.android.btn": "⬇ Download for Android",
+      "dl.note": "Free game — no account or launcher required. If Windows Defender/SmartScreen warns you when opening the executable, click \"More info → Run anyway\" (common for builds without a code-signing certificate).",
+      "legal.p1": "This is a <strong>free, unofficial fangame</strong> of Mega Man X. It is not affiliated with, endorsed, sponsored, or specifically approved by Capcom or any of its subsidiaries. Mega Man X is property of <strong>Capcom</strong> — please support the official games.",
+      "legal.p2": "Based on the original project <span class=\"credit-name\">X8 16-bit</span>, created by <span class=\"credit-name\">Alysson da Paz</span> — <a href=\"https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit\" target=\"_blank\" rel=\"noopener\">github.com/AlyssonDaPaz/Mega-Man-X8-16-bit</a>",
+      "legal.p3": "Distributed under the X8 16-bit License: free use and distribution, as long as it is not monetized. See the original project's repository for the full license text.",
+      "footer.text": "Made with Godot Engine · <a href=\"https://github.com/Ian03/Megaman-X\" target=\"_blank\" rel=\"noopener\">source code on GitHub</a>"
+    }
+  };
+
+  var STORAGE_KEY = "x8-lang";
+
+  function detectLang(){
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "pt" || saved === "en") return saved;
+    var browserLangs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < browserLangs.length; i++){
+      if (browserLangs[i].toLowerCase().indexOf("pt") === 0) return "pt";
+    }
+    return "en";
+  }
+
+  function applyLang(lang){
+    var dict = translations[lang] || translations.en;
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var key = el.getAttribute("data-i18n");
+      var value = dict[key];
+      if (value === undefined) return;
+      if (el.hasAttribute("data-i18n-attr")){
+        el.setAttribute(el.getAttribute("data-i18n-attr"), value);
+      } else {
+        el.innerHTML = value;
+      }
+    });
+
+    document.querySelectorAll(".lang-switch button").forEach(function(btn){
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+
+    localStorage.setItem(STORAGE_KEY, lang);
+  }
+
+  document.querySelectorAll(".lang-switch button").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      applyLang(btn.getAttribute("data-lang"));
+    });
+  });
+
+  applyLang(detectLang());
+})();
+</script>
 
 </body>
 </html>
