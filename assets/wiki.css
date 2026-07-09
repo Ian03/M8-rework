@@ -95,6 +95,14 @@ a{color:inherit}
   width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:8px;
   background:rgba(79,195,247,.1);color:var(--blue);font-size:1.05rem;
 }
+.entry-icon.character-icon{
+  width:58px;height:64px;flex-basis:58px;padding:4px;overflow:hidden;
+  background:radial-gradient(circle,rgba(79,195,247,.16),rgba(8,11,19,.65));
+}
+.character-icon img{
+  display:block;max-width:100%;max-height:100%;width:auto;height:auto;
+  image-rendering:pixelated;filter:drop-shadow(0 3px 3px rgba(0,0,0,.5));
+}
 .wiki-entry h3{font-size:.9rem;line-height:1.25;margin:0;overflow-wrap:anywhere}
 .entry-category{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
 .wiki-entry p{font-size:.76rem;color:var(--muted);margin:0}

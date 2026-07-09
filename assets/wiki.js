@@ -33,12 +33,21 @@
     ["chefes","Satan Sigma","Chefe","src/Actors/Bosses/SatanSigma"],
     ["chefes","Vile","Chefe","src/Actors/Bosses/Vile"],
 
-    ["personagens","X","Personagem jogável","src/Actors/Player/X"],
-    ["personagens","Ultimate X","Variação de X","X_mod/UltimateX"],
-    ["personagens","Infinite X","Variação de X","X_mod/InfiniteX"],
-    ["personagens","Zero","Personagem jogável","Zero_mod/Player"],
-    ["personagens","Axl","Personagem jogável","Axl_mod/Player"],
-    ["personagens","Alia","Personagem","src/Actors/Player/alia_sprites"],
+    ["personagens","X","Personagem jogável","System/Screens/CharacterSelection/X.png","X.png"],
+    ["personagens","Ultimate X","Variação de X","System/Screens/CharacterSelection/X_Ultimate.png","X_Ultimate.png"],
+    ["personagens","Infinite X","Variação de X","System/Screens/CharacterSelection/X_Infinite.png","X_Infinite.png"],
+    ["personagens","Hermes Armor X","Variação de X","System/Screens/CharacterSelection/X_Hermes.png","X_Hermes.png"],
+    ["personagens","Icarus Armor X","Variação de X","System/Screens/CharacterSelection/X_Icarus.png","X_Icarus.png"],
+    ["personagens","Zero","Personagem jogável","System/Screens/CharacterSelection/Zero.png","Zero.png"],
+    ["personagens","Awakened Zero","Variação de Zero","System/Screens/CharacterSelection/Zero_Awakened.png","Zero_Awakened.png"],
+    ["personagens","Black Zero","Variação de Zero","System/Screens/CharacterSelection/Zero_Beta.png","Zero_Beta.png"],
+    ["personagens","Axl","Personagem jogável","System/Screens/CharacterSelection/Axl.png","Axl.png"],
+    ["personagens","White Axl","Variação de Axl","System/Screens/CharacterSelection/Axl_Cheat.png","Axl_Cheat.png"],
+    ["personagens","Axl Floppa","Variação de Axl","System/Screens/CharacterSelection/Axl_Floppa.png","Axl_Floppa.png"],
+    ["personagens","White Axl Floppa","Variação de Axl","System/Screens/CharacterSelection/Axl_Floppa_Cheat.png","Axl_Floppa_Cheat.png"],
+    ["personagens","Alia","Personagem jogável","System/Screens/CharacterSelection/Alia.png","Alia.png"],
+    ["personagens","Layer","Personagem jogável","System/Screens/CharacterSelection/Layer.png","Layer.png"],
+    ["personagens","Pallette","Personagem jogável","System/Screens/CharacterSelection/Pallette.png","Pallette.png"],
 
     ["armas","Blast Launcher","Arma de X","src/Actors/Player/BossWeapons/BlastLauncher"],
     ["armas","Crystal Bouncer","Arma de X","src/Actors/Player/BossWeapons/CrystalBouncer"],
@@ -102,8 +111,11 @@
     });
 
     grid.innerHTML = results.map(function (item) {
+      var visual = item[4]
+        ? '<span class="entry-icon character-icon"><img src="assets/wiki/characters/' + item[4] + '" alt="" loading="lazy"></span>'
+        : '<span class="entry-icon" aria-hidden="true">' + icons[item[0]] + '</span>';
       return '<article class="wiki-entry">' +
-        '<div class="entry-top"><span class="entry-icon" aria-hidden="true">' + icons[item[0]] + '</span>' +
+        '<div class="entry-top">' + visual +
         '<div><span class="entry-category">' + labels[item[0]] + '</span><h3>' + item[1] + '</h3></div></div>' +
         '<p><strong>' + item[2] + '.</strong> ' + descriptions[item[0]] + '</p>' +
         '<span class="entry-source">Projeto: ' + item[3] + '</span></article>';
