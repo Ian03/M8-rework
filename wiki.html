@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wiki do fangame X8 16-bit: fases, chefes, personagens, armas e itens.">
+  <title>X8 16-bit Wiki</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="assets/wiki.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="assets/icon.png" alt="">
+      <span>X8 16-BIT</span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a class="active" href="wiki.html" aria-current="page">Wiki</a>
+      <a href="index.html#download">Download</a>
+    </nav>
+  </header>
+
+  <section class="wiki-hero">
+    <div class="hero-content">
+      <span class="eyebrow">Base de conhecimento</span>
+      <h1><span>X8 16-bit</span> Wiki</h1>
+      <p>Explore o conteúdo encontrado nos arquivos do projeto: fases, chefes, personagens, armas e itens.</p>
+      <label class="wiki-search">
+        <span class="sr-only">Buscar na wiki</span>
+        <input id="wiki-search" type="search" placeholder="Buscar fase, chefe, arma..." autocomplete="off">
+        <span aria-hidden="true">⌕</span>
+      </label>
+    </div>
+  </section>
+
+  <div class="wiki-layout">
+    <aside class="wiki-sidebar">
+      <section class="side-card">
+        <h2>Navegação</h2>
+        <nav id="category-nav" aria-label="Categorias da wiki">
+          <button class="side-link active" type="button" data-filter="all"><span>⌂</span> Visão geral</button>
+          <button class="side-link" type="button" data-filter="fases"><span>▧</span> Fases</button>
+          <button class="side-link" type="button" data-filter="chefes"><span>◆</span> Chefes</button>
+          <button class="side-link" type="button" data-filter="personagens"><span>♟</span> Personagens</button>
+          <button class="side-link" type="button" data-filter="armas"><span>⚡</span> Armas</button>
+          <button class="side-link" type="button" data-filter="itens"><span>●</span> Itens</button>
+        </nav>
+      </section>
+      <section class="side-card project-card">
+        <h2>Projeto</h2>
+        <dl>
+          <div><dt>Engine</dt><dd>Godot</dd></div>
+          <div><dt>Plataformas</dt><dd>PC + Android</dd></div>
+          <div><dt>Fonte</dt><dd>Arquivos do jogo</dd></div>
+        </dl>
+      </section>
+    </aside>
+
+    <main class="wiki-content">
+      <div class="breadcrumb"><a href="index.html">Início</a><span>›</span><span>Wiki</span><span>›</span><strong id="current-category">Visão geral</strong></div>
+
+      <section class="welcome-panel" id="welcome-panel">
+        <div>
+          <span class="eyebrow">Enciclopédia do projeto</span>
+          <h2>Bem-vindo à Wiki do X8 16-bit</h2>
+          <p>Este catálogo é mantido sem banco de dados. Os nomes foram organizados a partir das pastas e recursos do projeto do jogo.</p>
+        </div>
+        <img src="assets/logo.png" alt="X8 16-bit">
+      </section>
+
+      <section class="stats" aria-label="Resumo do catálogo">
+        <button type="button" data-filter="fases"><strong id="count-fases">0</strong><span>Fases</span></button>
+        <button type="button" data-filter="chefes"><strong id="count-chefes">0</strong><span>Chefes</span></button>
+        <button type="button" data-filter="personagens"><strong id="count-personagens">0</strong><span>Personagens</span></button>
+        <button type="button" data-filter="armas"><strong id="count-armas">0</strong><span>Armas</span></button>
+        <button type="button" data-filter="itens"><strong id="count-itens">0</strong><span>Itens</span></button>
+      </section>
+
+      <section class="catalog-panel">
+        <header>
+          <div>
+            <span class="eyebrow">Catálogo</span>
+            <h2 id="catalog-title">Todo o conteúdo</h2>
+          </div>
+          <span id="result-count" class="result-count" aria-live="polite"></span>
+        </header>
+        <div id="wiki-grid" class="wiki-grid"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span>⌕</span>
+          <h3>Nenhum resultado encontrado</h3>
+          <p>Tente buscar usando outro nome ou selecione outra categoria.</p>
+        </div>
+      </section>
+
+      <p class="source-note">Os nomes refletem a estrutura atual do projeto e podem mudar durante o desenvolvimento do jogo.</p>
+    </main>
+  </div>
+
+  <footer>Wiki do X8 16-bit · Fangame gratuito e não-oficial</footer>
+  <script src="assets/wiki.js"></script>
+</body>
+</html>
