@@ -9,26 +9,33 @@
   <link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="index.html">
-      <img src="assets/icon.png" alt="">
-      <span>X8 16-BIT</span>
-    </a>
-    <nav aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a class="active" href="wiki.html" aria-current="page">Wiki</a>
-      <a href="index.html#download">Download</a>
-    </nav>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icon.png" alt="Ícone X8">
+        <span>X8 16-BIT</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="index.html#sobre" data-i18n="nav.sobre">Sobre</a>
+        <a href="index.html#screenshots" data-i18n="nav.screenshots">Screenshots</a>
+        <a href="wiki.html" class="active" aria-current="page">Wiki</a>
+        <a href="index.html#download" data-i18n="nav.download">Download</a>
+        <div class="lang-switch" role="group" aria-label="Language / Idioma">
+          <button type="button" data-lang="pt">PT</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <section class="wiki-hero">
     <div class="hero-content">
-      <span class="eyebrow">Base de conhecimento</span>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Base de conhecimento</span>
       <h1><span>X8 16-bit</span> Wiki</h1>
-      <p>Explore o conteúdo encontrado nos arquivos do projeto: fases, chefes, personagens, armas e itens.</p>
+      <p data-i18n="hero.description">Explore o conteúdo encontrado nos arquivos do projeto: fases, chefes, personagens, armas e itens.</p>
       <label class="wiki-search">
         <span class="sr-only">Buscar na wiki</span>
-        <input id="wiki-search" type="search" placeholder="Buscar fase, chefe, arma..." autocomplete="off">
+        <input id="wiki-search" type="search" data-i18n-attr="placeholder" data-i18n="search.placeholder" placeholder="Buscar fase, chefe, arma..." autocomplete="off">
         <span aria-hidden="true">⌕</span>
       </label>
     </div>
@@ -37,14 +44,14 @@
   <div class="wiki-layout">
     <aside class="wiki-sidebar">
       <section class="side-card">
-        <h2>Navegação</h2>
+        <h2 data-i18n="sidebar.navigation">Navegação</h2>
         <nav id="category-nav" aria-label="Categorias da wiki">
-          <button class="side-link active" type="button" data-filter="all"><span>⌂</span> Visão geral</button>
-          <button class="side-link" type="button" data-filter="fases"><span>▧</span> Fases</button>
-          <button class="side-link" type="button" data-filter="chefes"><span>◆</span> Chefes</button>
-          <button class="side-link" type="button" data-filter="personagens"><span>♟</span> Personagens</button>
-          <button class="side-link" type="button" data-filter="armas"><span>⚡</span> Armas</button>
-          <button class="side-link" type="button" data-filter="itens"><span>●</span> Itens</button>
+          <button class="side-link active" type="button" data-filter="all"><span>⌂</span> <b data-i18n="category.all">Visão geral</b></button>
+          <button class="side-link" type="button" data-filter="fases"><span>▧</span> <b data-i18n="category.fases">Fases</b></button>
+          <button class="side-link" type="button" data-filter="chefes"><span>◆</span> <b data-i18n="category.chefes">Chefes</b></button>
+          <button class="side-link" type="button" data-filter="personagens"><span>♟</span> <b data-i18n="category.personagens">Personagens</b></button>
+          <button class="side-link" type="button" data-filter="armas"><span>⚡</span> <b data-i18n="category.armas">Armas</b></button>
+          <button class="side-link" type="button" data-filter="itens"><span>●</span> <b data-i18n="category.itens">Itens</b></button>
         </nav>
       </section>
       <section class="side-card project-card">
@@ -62,25 +69,25 @@
 
       <section class="welcome-panel" id="welcome-panel">
         <div>
-          <span class="eyebrow">Enciclopédia do projeto</span>
-          <h2>Bem-vindo à Wiki do X8 16-bit</h2>
-          <p>Este catálogo é mantido sem banco de dados. Os nomes foram organizados a partir das pastas e recursos do projeto do jogo.</p>
+          <span class="eyebrow" data-i18n="welcome.eyebrow">Enciclopédia do projeto</span>
+          <h2 data-i18n="welcome.title">Bem-vindo à Wiki do X8 16-bit</h2>
+          <p data-i18n="welcome.description">Este catálogo é mantido sem banco de dados. Os nomes foram organizados a partir das pastas e recursos do projeto do jogo.</p>
         </div>
         <img src="assets/logo.png" alt="X8 16-bit">
       </section>
 
       <section class="stats" aria-label="Resumo do catálogo">
-        <button type="button" data-filter="fases"><strong id="count-fases">0</strong><span>Fases</span></button>
-        <button type="button" data-filter="chefes"><strong id="count-chefes">0</strong><span>Chefes</span></button>
-        <button type="button" data-filter="personagens"><strong id="count-personagens">0</strong><span>Personagens</span></button>
-        <button type="button" data-filter="armas"><strong id="count-armas">0</strong><span>Armas</span></button>
-        <button type="button" data-filter="itens"><strong id="count-itens">0</strong><span>Itens</span></button>
+        <button type="button" data-filter="fases"><strong id="count-fases">0</strong><span data-i18n="category.fases">Fases</span></button>
+        <button type="button" data-filter="chefes"><strong id="count-chefes">0</strong><span data-i18n="category.chefes">Chefes</span></button>
+        <button type="button" data-filter="personagens"><strong id="count-personagens">0</strong><span data-i18n="category.personagens">Personagens</span></button>
+        <button type="button" data-filter="armas"><strong id="count-armas">0</strong><span data-i18n="category.armas">Armas</span></button>
+        <button type="button" data-filter="itens"><strong id="count-itens">0</strong><span data-i18n="category.itens">Itens</span></button>
       </section>
 
       <section class="catalog-panel">
         <header>
           <div>
-            <span class="eyebrow">Catálogo</span>
+            <span class="eyebrow" data-i18n="catalog.eyebrow">Catálogo</span>
             <h2 id="catalog-title">Todo o conteúdo</h2>
           </div>
           <span id="result-count" class="result-count" aria-live="polite"></span>
@@ -88,16 +95,40 @@
         <div id="wiki-grid" class="wiki-grid"></div>
         <div id="empty-state" class="empty-state" hidden>
           <span>⌕</span>
-          <h3>Nenhum resultado encontrado</h3>
-          <p>Tente buscar usando outro nome ou selecione outra categoria.</p>
+          <h3 data-i18n="empty.title">Nenhum resultado encontrado</h3>
+          <p data-i18n="empty.description">Tente buscar usando outro nome ou selecione outra categoria.</p>
         </div>
       </section>
 
-      <p class="source-note">Os nomes refletem a estrutura atual do projeto e podem mudar durante o desenvolvimento do jogo.</p>
+      <p class="source-note" data-i18n="source.note">Os nomes refletem a estrutura atual do projeto e podem mudar durante o desenvolvimento do jogo.</p>
     </main>
   </div>
 
-  <footer>Wiki do X8 16-bit · Fangame gratuito e não-oficial</footer>
+  <section class="legal">
+    <div class="legal-container">
+      <p data-i18n="legal.p1">
+        Este é um <strong>fangame gratuito e não-oficial</strong> de Mega Man X.
+        Não é afiliado, associado, autorizado, aprovado ou de qualquer forma
+        oficialmente conectado com a Capcom ou qualquer uma de suas subsidiárias.
+        Mega Man X é propriedade da <strong>Capcom</strong> — por favor, apoie os jogos oficiais.
+      </p>
+      <p data-i18n="legal.p2">
+        Baseado no projeto original <span class="credit-name">X8 16-bit</span>,
+        criado por <span class="credit-name">Alysson da Paz</span> —
+        <a href="https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit" target="_blank" rel="noopener">
+          github.com/AlyssonDaPaz/Mega-Man-X8-16-bit
+        </a>
+      </p>
+      <p data-i18n="legal.p3">
+        Distribuído sob a licença X8 16-bit License: uso e distribuição livres,
+        desde que não monetizados. Consulte o repositório do projeto original para o texto completo da licença.
+      </p>
+    </div>
+  </section>
+
+  <footer data-i18n="footer.text">
+    Feito com Godot Engine · <a href="https://github.com/Ian03/Megaman-X" target="_blank" rel="noopener">código-fonte no GitHub</a>
+  </footer>
   <script src="assets/wiki.js"></script>
 </body>
 </html>

@@ -85,15 +85,76 @@
     ["itens","Light Capsule","Cápsula de armadura","src/Objects/Light Capsule/LightCapsule.tscn"]
   ];
 
-  var labels = {all:"Visão geral",fases:"Fases",chefes:"Chefes",personagens:"Personagens",armas:"Armas",itens:"Itens"};
+  var translations = {
+    pt: {
+      "nav.sobre":"Sobre","nav.screenshots":"Screenshots","nav.download":"Download",
+      "hero.eyebrow":"Base de conhecimento",
+      "hero.description":"Explore o conteúdo encontrado nos arquivos do projeto: fases, chefes, personagens, armas e itens.",
+      "search.placeholder":"Buscar fase, chefe, arma...","sidebar.navigation":"Navegação",
+      "category.all":"Visão geral","category.fases":"Fases","category.chefes":"Chefes",
+      "category.personagens":"Personagens","category.armas":"Armas","category.itens":"Itens",
+      "welcome.eyebrow":"Enciclopédia do projeto","welcome.title":"Bem-vindo à Wiki do X8 16-bit",
+      "welcome.description":"Este catálogo é mantido sem banco de dados. Os nomes foram organizados a partir das pastas e recursos do projeto do jogo.",
+      "catalog.eyebrow":"Catálogo","catalog.all":"Todo o conteúdo",
+      "empty.title":"Nenhum resultado encontrado",
+      "empty.description":"Tente buscar usando outro nome ou selecione outra categoria.",
+      "source.note":"Os nomes refletem a estrutura atual do projeto e podem mudar durante o desenvolvimento do jogo.",
+      "legal.p1":"Este é um <strong>fangame gratuito e não-oficial</strong> de Mega Man X. Não é afiliado, associado, autorizado, aprovado ou de qualquer forma oficialmente conectado com a Capcom ou qualquer uma de suas subsidiárias. Mega Man X é propriedade da <strong>Capcom</strong> — por favor, apoie os jogos oficiais.",
+      "legal.p2":"Baseado no projeto original <span class=\"credit-name\">X8 16-bit</span>, criado por <span class=\"credit-name\">Alysson da Paz</span> — <a href=\"https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit\" target=\"_blank\" rel=\"noopener\">github.com/AlyssonDaPaz/Mega-Man-X8-16-bit</a>",
+      "legal.p3":"Distribuído sob a licença X8 16-bit License: uso e distribuição livres, desde que não monetizados. Consulte o repositório do projeto original para o texto completo da licença.",
+      "footer.text":"Feito com Godot Engine · <a href=\"https://github.com/Ian03/Megaman-X\" target=\"_blank\" rel=\"noopener\">código-fonte no GitHub</a>",
+      "result.one":"registro","result.many":"registros","project":"Projeto"
+    },
+    en: {
+      "nav.sobre":"About","nav.screenshots":"Screenshots","nav.download":"Download",
+      "hero.eyebrow":"Knowledge base",
+      "hero.description":"Explore content found in the project files: stages, bosses, characters, weapons and items.",
+      "search.placeholder":"Search stages, bosses, weapons...","sidebar.navigation":"Navigation",
+      "category.all":"Overview","category.fases":"Stages","category.chefes":"Bosses",
+      "category.personagens":"Characters","category.armas":"Weapons","category.itens":"Items",
+      "welcome.eyebrow":"Project encyclopedia","welcome.title":"Welcome to the X8 16-bit Wiki",
+      "welcome.description":"This catalog works without a database. Names are organized from the game project's folders and resources.",
+      "catalog.eyebrow":"Catalog","catalog.all":"All content",
+      "empty.title":"No results found",
+      "empty.description":"Try another name or select a different category.",
+      "source.note":"Names reflect the current project structure and may change during game development.",
+      "legal.p1":"This is a <strong>free, unofficial fangame</strong> of Mega Man X. It is not affiliated with, endorsed, sponsored, or specifically approved by Capcom or any of its subsidiaries. Mega Man X is property of <strong>Capcom</strong> — please support the official games.",
+      "legal.p2":"Based on the original project <span class=\"credit-name\">X8 16-bit</span>, created by <span class=\"credit-name\">Alysson da Paz</span> — <a href=\"https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit\" target=\"_blank\" rel=\"noopener\">github.com/AlyssonDaPaz/Mega-Man-X8-16-bit</a>",
+      "legal.p3":"Distributed under the X8 16-bit License: free use and distribution, as long as it is not monetized. See the original project's repository for the full license text.",
+      "footer.text":"Made with Godot Engine · <a href=\"https://github.com/Ian03/Megaman-X\" target=\"_blank\" rel=\"noopener\">source code on GitHub</a>",
+      "result.one":"record","result.many":"records","project":"Project"
+    }
+  };
+  var categoryLabels = {
+    pt:{all:"Visão geral",fases:"Fases",chefes:"Chefes",personagens:"Personagens",armas:"Armas",itens:"Itens"},
+    en:{all:"Overview",fases:"Stages",chefes:"Bosses",personagens:"Characters",armas:"Weapons",itens:"Items"}
+  };
   var icons = {fases:"▧",chefes:"◆",personagens:"♟",armas:"⚡",itens:"●"};
   var descriptions = {
-    fases:"Área jogável identificada nos diretórios de níveis do projeto.",
-    chefes:"Inimigo especial com recursos próprios na estrutura de chefes.",
-    personagens:"Personagem ou variação com recursos próprios no projeto.",
-    armas:"Arma ou habilidade encontrada nos recursos dos personagens.",
-    itens:"Coletável ou objeto de suporte encontrado nos recursos do jogo."
+    pt:{
+      fases:"Área jogável identificada nos diretórios de níveis do projeto.",
+      chefes:"Inimigo especial com recursos próprios na estrutura de chefes.",
+      personagens:"Personagem ou variação com recursos próprios no projeto.",
+      armas:"Arma ou habilidade encontrada nos recursos dos personagens.",
+      itens:"Coletável ou objeto de suporte encontrado nos recursos do jogo."
+    },
+    en:{
+      fases:"Playable area identified in the project's level directories.",
+      chefes:"Special enemy with dedicated resources in the boss structure.",
+      personagens:"Character or variation with dedicated project resources.",
+      armas:"Weapon or ability found in the characters' resources.",
+      itens:"Collectible or support object found in the game resources."
+    }
   };
+  var typeTranslations = {
+    "Fase":"Stage","Chefe":"Boss","Personagem jogável":"Playable character","Personagem":"Character",
+    "Variação de X":"X variation","Variação de Zero":"Zero variation","Variação de Axl":"Axl variation",
+    "Arma de X":"X weapon","Arma de Zero":"Zero weapon","Arma de Axl":"Axl weapon",
+    "Aumento de energia":"Energy upgrade","Reserva de energia":"Energy reserve","Vida extra":"Extra life",
+    "Recuperação de energia":"Energy recovery","Recuperação de munição":"Ammo recovery","Cápsula de armadura":"Armor capsule"
+  };
+  var STORAGE_KEY = "x8-lang";
+  var currentLang = "pt";
   var activeFilter = "all";
   var search = document.getElementById("wiki-search");
   var grid = document.getElementById("wiki-grid");
@@ -116,28 +177,30 @@
         : '<span class="entry-icon" aria-hidden="true">' + icons[item[0]] + '</span>';
       return '<article class="wiki-entry">' +
         '<div class="entry-top">' + visual +
-        '<div><span class="entry-category">' + labels[item[0]] + '</span><h3>' + item[1] + '</h3></div></div>' +
-        '<p><strong>' + item[2] + '.</strong> ' + descriptions[item[0]] + '</p>' +
-        '<span class="entry-source">Projeto: ' + item[3] + '</span></article>';
+        '<div><span class="entry-category">' + categoryLabels[currentLang][item[0]] + '</span><h3>' + item[1] + '</h3></div></div>' +
+        '<p><strong>' + (currentLang === "en" ? (typeTranslations[item[2]] || item[2]) : item[2]) + '.</strong> ' + descriptions[currentLang][item[0]] + '</p>' +
+        '<span class="entry-source">' + translations[currentLang].project + ': ' + item[3] + '</span></article>';
     }).join("");
 
-    document.getElementById("result-count").textContent = results.length + (results.length === 1 ? " registro" : " registros");
+    document.getElementById("result-count").textContent = results.length + " " +
+      translations[currentLang][results.length === 1 ? "result.one" : "result.many"];
     empty.hidden = results.length !== 0;
     grid.hidden = results.length === 0;
   }
 
   function setFilter(filter) {
-    activeFilter = labels[filter] ? filter : "all";
+    activeFilter = categoryLabels[currentLang][filter] ? filter : "all";
     document.querySelectorAll("[data-filter]").forEach(function (button) {
       button.classList.toggle("active", button.dataset.filter === activeFilter);
     });
-    document.getElementById("current-category").textContent = labels[activeFilter];
-    document.getElementById("catalog-title").textContent = activeFilter === "all" ? "Todo o conteúdo" : labels[activeFilter];
+    document.getElementById("current-category").textContent = categoryLabels[currentLang][activeFilter];
+    document.getElementById("catalog-title").textContent = activeFilter === "all"
+      ? translations[currentLang]["catalog.all"] : categoryLabels[currentLang][activeFilter];
     document.getElementById("welcome-panel").hidden = activeFilter !== "all" || search.value.trim() !== "";
     render();
   }
 
-  Object.keys(labels).filter(function (key) { return key !== "all"; }).forEach(function (category) {
+  Object.keys(categoryLabels.pt).filter(function (key) { return key !== "all"; }).forEach(function (category) {
     document.getElementById("count-" + category).textContent = catalog.filter(function (item) { return item[0] === category; }).length;
   });
 
@@ -152,5 +215,34 @@
     document.getElementById("welcome-panel").hidden = search.value.trim() !== "" || activeFilter !== "all";
     render();
   });
-  render();
+
+  function detectLanguage() {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "pt" || saved === "en") return saved;
+    return (navigator.language || "en").toLowerCase().indexOf("pt") === 0 ? "pt" : "en";
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang === "pt" ? "pt" : "en";
+    document.documentElement.lang = currentLang === "pt" ? "pt-BR" : "en";
+    document.querySelectorAll("[data-i18n]").forEach(function (element) {
+      var value = translations[currentLang][element.dataset.i18n];
+      if (value === undefined) return;
+      if (element.hasAttribute("data-i18n-attr")) {
+        element.setAttribute(element.getAttribute("data-i18n-attr"), value);
+      } else {
+        element.innerHTML = value;
+      }
+    });
+    document.querySelectorAll("[data-lang]").forEach(function (button) {
+      button.classList.toggle("active", button.dataset.lang === currentLang);
+    });
+    localStorage.setItem(STORAGE_KEY, currentLang);
+    setFilter(activeFilter);
+  }
+
+  document.querySelectorAll("[data-lang]").forEach(function (button) {
+    button.addEventListener("click", function () { applyLanguage(button.dataset.lang); });
+  });
+  applyLanguage(detectLanguage());
 })();
