@@ -1,0 +1,20 @@
+# Este repo e servido pelo GitHub Pages: todo arquivo commitado aqui fica
+# publicamente acessivel por URL, mesmo sem link apontando pra ele.
+# Scripts de publicacao moram em D:\Deverlop\Builds\Megaman x\ e nao devem
+# entrar aqui.
+publish-release.ps1
+*.bat
+*.ps1
+/scripts/
+
+# Artefatos de build nunca sao versionados - vao para as Releases.
+*.exe
+*.apk
+*.idsig
+*.pck
+*.x86_64
+*.zip
+
+# Lixo do Windows
+Thumbs.db
+desktop.ini
