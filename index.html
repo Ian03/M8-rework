@@ -289,6 +289,149 @@
     }
   }
 </style>
+<style>
+  /* Rework visual — inspirado no mockup rework page.png */
+  :root{
+    --bg:#020817;
+    --bg-alt:#050d20;
+    --panel:#07142b;
+    --panel-border:#26578a;
+    --gold:#ffad19;
+    --gold-dark:#d77a00;
+    --blue:#20d5ff;
+    --blue-dim:#1676b8;
+    --text:#e4efff;
+    --text-dim:#9db2cf;
+  }
+  body{
+    background:
+      linear-gradient(rgba(3,9,24,.92),rgba(3,9,24,.92)),
+      repeating-linear-gradient(0deg,transparent 0 3px,rgba(39,116,183,.08) 4px);
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(circle at 12% 14%,rgba(0,185,255,.13),transparent 25%),
+      radial-gradient(circle at 87% 10%,rgba(15,94,190,.16),transparent 28%);
+  }
+  header.nav{
+    background:rgba(2,8,23,.94);
+    border:1px solid #174d85;border-top:3px solid #0b3e74;
+    box-shadow:0 0 0 2px #020817,0 0 24px rgba(0,126,255,.18);
+  }
+  .nav-inner{max-width:1180px;padding:10px 26px}
+  .brand{font-family:Consolas,monospace;letter-spacing:1.5px}
+  .brand img{width:38px;height:38px;filter:drop-shadow(0 0 8px #149cff)}
+  .nav-links{font-family:Consolas,monospace;text-transform:uppercase;font-size:12px;gap:38px}
+  .nav-links a{position:relative;color:#a9bddd}
+  .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-13px;height:2px;background:var(--blue);transition:right .2s}
+  .nav-links a:hover::after{right:0}
+  .lang-switch{border-radius:5px;padding:0;border-color:#31577f}
+  .lang-switch button{border-radius:3px;padding:5px 13px}
+
+  .hero{
+    min-height:540px;padding:74px 24px 48px;display:grid;place-items:center;
+    isolation:isolate;border-bottom:1px solid #1f5c92;
+    background:
+      linear-gradient(90deg,rgba(1,8,20,.45),rgba(1,8,20,.15) 40%,rgba(1,8,20,.15) 60%,rgba(1,8,20,.5)),
+      radial-gradient(ellipse at 50% 35%,rgba(8,75,132,.72),rgba(2,12,29,.94) 67%);
+  }
+  .hero::before{
+    background:
+      linear-gradient(180deg,transparent 74%,#020817),
+      repeating-linear-gradient(90deg,transparent 0 79px,rgba(32,213,255,.035) 80px),
+      repeating-linear-gradient(0deg,transparent 0 79px,rgba(32,213,255,.035) 80px);
+  }
+  .hero::after{content:"";position:absolute;inset:12px;border:1px solid rgba(43,110,171,.5);clip-path:polygon(0 0,24% 0,26% 2px,74% 2px,76% 0,100% 0,100% 100%,0 100%);z-index:-1}
+  .hero .container{position:relative;z-index:2;max-width:680px}
+  .hero-stage{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .hero-sprite{position:absolute;image-rendering:pixelated;filter:drop-shadow(0 12px 14px rgba(0,0,0,.65)) drop-shadow(0 0 10px rgba(28,164,255,.55))}
+  .hero-sprite.x{width:168px;left:max(4%,calc(50% - 520px));bottom:45px}
+  .hero-sprite.zero{width:145px;right:max(9%,calc(50% - 470px));top:38px;filter:drop-shadow(0 12px 14px #000) drop-shadow(0 0 12px rgba(255,68,24,.5))}
+  .hero-sprite.axl{width:142px;right:max(3%,calc(50% - 545px));bottom:33px}
+  .hero img.logo{width:286px;margin-bottom:8px;filter:drop-shadow(0 0 20px rgba(255,158,0,.4))}
+  .hero h1{font-family:Consolas,monospace;font-size:15px;letter-spacing:2px;text-shadow:0 0 12px rgba(32,213,255,.55)}
+  .hero p.tagline{max-width:560px;color:#d2def0;font-size:15px;line-height:1.55;margin-bottom:25px}
+  .btn{border-radius:6px;text-transform:uppercase;font-family:Consolas,monospace;font-weight:800;padding:12px 24px}
+  .btn-primary{box-shadow:inset 0 0 0 1px #ffd65e,0 0 18px rgba(255,166,0,.25)}
+  .btn-outline{background:rgba(2,9,23,.7);border-color:#315b8a;color:#43d7ff}
+  .disclaimer-pill{margin-top:17px;border-radius:6px;background:rgba(2,8,21,.72);padding:5px 15px}
+
+  section{padding:58px 24px}
+  #sobre,#screenshots,#download{position:relative;max-width:1180px;margin-inline:auto}
+  .section-title{margin-bottom:20px}
+  .section-title .eyebrow{font-family:Consolas,monospace;font-weight:800;letter-spacing:1px;margin-bottom:1px}
+  .section-title h2{font-size:25px;text-shadow:0 0 16px rgba(72,156,255,.22)}
+  .features-grid{grid-template-columns:repeat(4,1fr);gap:10px;max-width:none}
+  .feature-card,.dl-card{
+    position:relative;border-radius:6px;background:linear-gradient(145deg,rgba(8,25,53,.94),rgba(3,12,29,.96));
+    border-color:#315f91;box-shadow:inset 0 0 18px rgba(15,82,145,.13);
+  }
+  .feature-card{min-height:138px;padding:19px 16px 18px 74px}
+  .feature-card::after,.dl-card::after{content:"";position:absolute;inset:5px;border:1px solid rgba(46,113,174,.12);pointer-events:none}
+  .feature-card .icon{position:absolute;left:17px;top:21px;font-size:35px;filter:drop-shadow(0 0 7px rgba(35,193,255,.35))}
+  .feature-card h3{text-transform:uppercase;font-size:13px;margin:4px 0 8px}
+  .feature-card p{font-size:12px;line-height:1.55;color:#b4c4da}
+  .chars{gap:10px!important;margin-top:18px!important}
+  .chip{border-radius:5px;padding:7px 15px;background:#061127}
+  #screenshots{padding-top:10px}
+  .shots-grid{max-width:none;grid-template-columns:repeat(3,1fr);gap:14px}
+  .shot{border-radius:7px;border:2px solid #315d8b;box-shadow:0 6px 18px #0008;aspect-ratio:16/9}
+  .shot img{image-rendering:auto}
+  #download{padding-top:10px}
+  .download-grid{max-width:980px;grid-template-columns:repeat(3,1fr);gap:28px}
+  .dl-card{border-radius:7px;padding:18px 17px 14px}
+  .dl-card .os-icon{width:40px;height:40px;margin-bottom:7px;color:#21c9ff;filter:drop-shadow(0 0 7px #1689c9)}
+  .dl-card h3{font-size:16px}.dl-card .meta{margin-bottom:12px}
+  .dl-card .btn{padding:10px 7px;font-size:12px}
+  .dl-note{max-width:760px;margin-top:16px}
+  .legal{margin-top:12px;padding-block:40px;background:linear-gradient(90deg,#061229,#020817 40%,#061229);border-color:#275e91}
+  .legal .container{max-width:1050px;columns:3;column-gap:42px;text-align:left}
+  .legal p{break-inside:avoid;font-size:12px;line-height:1.55}
+  footer{border-top:1px solid #173e68;padding:14px;background:#020817}
+
+  @media(max-width:900px){
+    .features-grid{grid-template-columns:repeat(2,1fr)}
+    .hero-sprite{opacity:.34}.hero-sprite.x{left:-20px}.hero-sprite.zero{right:5px}.hero-sprite.axl{display:none}
+    .legal .container{columns:2}
+  }
+  @media(max-width:700px){
+    .nav-inner{padding:8px 14px}.nav-links{gap:2px}.nav-links a::after{bottom:0}
+    .hero{min-height:560px;padding-top:96px}.hero img.logo{width:min(260px,75vw)}
+    .hero-sprite.x{width:110px;bottom:18px}.hero-sprite.zero{width:100px;top:82px}
+    .features-grid,.shots-grid,.download-grid{grid-template-columns:1fr}
+    .feature-card{min-height:120px}.shots-grid{gap:18px}.download-grid{gap:14px}
+    .legal .container{columns:1}.legal{text-align:left}
+  }
+  .shot{position:relative;cursor:zoom-in}
+  .shot::after{
+    content:"⌕";position:absolute;right:10px;bottom:10px;width:34px;height:34px;
+    display:grid;place-items:center;border:1px solid #4b81b8;border-radius:5px;
+    color:#fff;background:rgba(2,9,23,.76);font-size:21px;opacity:0;transform:translateY(5px);
+    transition:opacity .18s,transform .18s;pointer-events:none;
+  }
+  .shot:hover::after,.shot:focus-visible::after{opacity:1;transform:none}
+  .shot:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+  body.lightbox-open{overflow:hidden}
+  .x8-lightbox{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:56px 72px 42px}
+  .x8-lightbox[hidden]{display:none}
+  .x8-lightbox-backdrop{position:absolute;inset:0;background:rgba(0,3,12,.93);backdrop-filter:blur(7px);animation:x8FadeIn .25s ease}
+  .x8-lightbox-content{position:relative;z-index:1;max-width:min(1180px,94vw);animation:x8ZoomIn .25s ease;text-align:center}
+  .x8-lightbox-image{display:block;max-width:100%;max-height:78vh;margin:auto;border:2px solid #3c77ae;border-radius:7px;box-shadow:0 20px 70px #000,0 0 30px rgba(24,149,255,.18)}
+  .x8-lightbox-caption{margin:12px 0 0;color:#b8cae1;font:13px Consolas,monospace}
+  .x8-lightbox-close,.x8-lightbox-nav{position:absolute;z-index:2;display:grid;place-items:center;border:1px solid #3c6f9f;color:#fff;background:rgba(5,20,43,.88);cursor:pointer;transition:.15s}
+  .x8-lightbox-close{top:-45px;right:0;width:38px;height:38px;border-radius:50%;font-size:25px;line-height:1}
+  .x8-lightbox-nav{top:50%;width:44px;height:58px;border-radius:5px;font-size:31px;transform:translateY(-50%)}
+  .x8-lightbox-prev{left:-61px}.x8-lightbox-next{right:-61px}
+  .x8-lightbox-close:hover,.x8-lightbox-nav:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 15px rgba(32,213,255,.18)}
+  @keyframes x8FadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes x8ZoomIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+  @media(max-width:700px){
+    .x8-lightbox{padding:55px 12px 74px}.x8-lightbox-content{max-width:96vw}.x8-lightbox-image{max-height:72vh}
+    .x8-lightbox-nav{top:auto;bottom:-58px;transform:none}.x8-lightbox-prev{left:calc(50% - 54px)}.x8-lightbox-next{right:calc(50% - 54px)}
+  }
+</style>
 </head>
 <body>
 
@@ -312,6 +455,11 @@
 </header>
 
 <section class="hero">
+  <div class="hero-stage" aria-hidden="true">
+    <img class="hero-sprite x" src="assets/wiki/characters/X.png" alt="">
+    <img class="hero-sprite zero" src="assets/wiki/characters/Zero.png" alt="">
+    <img class="hero-sprite axl" src="assets/wiki/characters/Axl.png" alt="">
+  </div>
   <div class="container">
     <img class="logo" src="assets/logo.png" alt="X8 16-bit">
     <h1 data-i18n="hero.h1">Fangame gratuito de Mega Man X</h1>
@@ -476,6 +624,7 @@
   Feito com Godot Engine
 </footer>
 
+<script src="assets/gallery.js"></script>
 <script src="assets/legal.js"></script>
 <script>
 (function(){
