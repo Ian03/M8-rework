@@ -99,10 +99,6 @@
       "empty.title":"Nenhum resultado encontrado",
       "empty.description":"Tente buscar usando outro nome ou selecione outra categoria.",
       "source.note":"Os nomes refletem a estrutura atual do projeto e podem mudar durante o desenvolvimento do jogo.",
-      "legal.p1":"Este é um <strong>fangame gratuito e não-oficial</strong> de Mega Man X. Não é afiliado, associado, autorizado, aprovado ou de qualquer forma oficialmente conectado com a Capcom ou qualquer uma de suas subsidiárias. Mega Man X é propriedade da <strong>Capcom</strong> — por favor, apoie os jogos oficiais.",
-      "legal.p2":"Baseado no projeto original <span class=\"credit-name\">X8 16-bit</span>, criado por <span class=\"credit-name\">Alysson da Paz</span> — <a href=\"https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit\" target=\"_blank\" rel=\"noopener\">github.com/AlyssonDaPaz/Mega-Man-X8-16-bit</a>",
-      "legal.p3":"Distribuído sob a licença X8 16-bit License: uso e distribuição livres, desde que não monetizados. Consulte o repositório do projeto original para o texto completo da licença.",
-      "footer.text":"Feito com Godot Engine",
       "result.one":"registro","result.many":"registros","project":"Projeto"
     },
     en: {
@@ -118,13 +114,14 @@
       "empty.title":"No results found",
       "empty.description":"Try another name or select a different category.",
       "source.note":"Names reflect the current project structure and may change during game development.",
-      "legal.p1":"This is a <strong>free, unofficial fangame</strong> of Mega Man X. It is not affiliated with, endorsed, sponsored, or specifically approved by Capcom or any of its subsidiaries. Mega Man X is property of <strong>Capcom</strong> — please support the official games.",
-      "legal.p2":"Based on the original project <span class=\"credit-name\">X8 16-bit</span>, created by <span class=\"credit-name\">Alysson da Paz</span> — <a href=\"https://github.com/AlyssonDaPaz/Mega-Man-X8-16-bit\" target=\"_blank\" rel=\"noopener\">github.com/AlyssonDaPaz/Mega-Man-X8-16-bit</a>",
-      "legal.p3":"Distributed under the X8 16-bit License: free use and distribution, as long as it is not monetized. See the original project's repository for the full license text.",
-      "footer.text":"Made with Godot Engine",
       "result.one":"record","result.many":"records","project":"Project"
     }
   };
+  // Textos de créditos/licença/rodapé vêm de assets/legal.js (fonte única compartilhada com o index).
+  if (window.LEGAL_I18N){
+    Object.assign(translations.pt, window.LEGAL_I18N.pt);
+    Object.assign(translations.en, window.LEGAL_I18N.en);
+  }
   var categoryLabels = {
     pt:{all:"Visão geral",fases:"Fases",chefes:"Chefes",personagens:"Personagens",armas:"Armas",itens:"Itens"},
     en:{all:"Overview",fases:"Stages",chefes:"Bosses",personagens:"Characters",armas:"Weapons",itens:"Items"}
